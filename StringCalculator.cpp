@@ -4,8 +4,8 @@ int StringCalculator::add(string input){
         {
                 return 0;
         }
-        else
+        else if(input.compare("1"))
         {
-                cout<<"Other than empty"<<endl;
+                return 0;
         }
 }
