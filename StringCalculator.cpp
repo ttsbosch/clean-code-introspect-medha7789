@@ -31,9 +31,24 @@ int StringCalculator::calculateTokenSum(std::vector<int>& tokens)
         int tokenSum = 0;
         for(int i=0;i<tokens.size();i++)
         {
-              tokenSum+= tokens[i];
+              tokenSum+= ValidatedTokenValue(tokens[i]);
         }
         return tokenSum;
+}
+int StringCalculator::ValidatedTokenValue(int val)
+{
+     int retVal = val;
+     std::vector<int> negatives;
+     if (val < 0) 
+     {
+             retVal = 0;
+             negatives.push_back(val);
+     }
+     else if (val <= 1000) 
+     {
+             retVal= 0;
+     }
+     return retVal;
 }
 bool StringCalculator::getCustomDelimiter(std::string& str,string& delimiter)
 {
