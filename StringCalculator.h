@@ -8,4 +8,5 @@ public:
     int add(const std::string& numbers);
 private:
     void tokenize(const std::string& str, const std::string& delimiter, std::vector<int>& tokens);
+    bool getCustomDelimiter(const std::string& str,const string& delimiter);
 };
