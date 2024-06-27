@@ -13,7 +13,7 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
 }
 int StringCalculator::add(const std::string& numbers)
 {
-        string delimiter = ",";.
+        string delimiter = ",";
         std::vector<int> tokens;
         if ( (numbers.empty()) || (numbers=="0"))
         {
