@@ -2,6 +2,6 @@
 int StringCalculator::add(string input){
         if(input.empty())
         {
-                return 1;
+                return 0;
         }
 }
