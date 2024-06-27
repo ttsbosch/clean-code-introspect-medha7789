@@ -63,29 +63,3 @@ private:
         tokens.push_back(std::stoi(last_token));
     }
 };
-
-int main() {
-    StringCalculator calc;
-    
-    try {
-        std::cout << calc.add("") << std::endl;                      // Output: 0
-        std::cout << calc.add("1") << std::endl;                     // Output: 1
-        std::cout << calc.add("1,2") << std::endl;                   // Output: 3
-        std::cout << calc.add("1\n2,3") << std::endl;                // Output: 6
-        std::cout << calc.add("//;\n1;2") << std::endl;              // Output: 3
-        std::cout << calc.add("//[***]\n12***3") << std::endl;       // Output: 6
-        std::cout << calc.add("2,1001") << std::endl;                // Output: 2 (1001 is ignored)
-        std::cout << calc.add("//[abc]\n1abc2") << std::endl;        // Output: 3
-        
-        std::cout << calc.add("1,2,3,4,5") << std::endl;              // Output: 15 (Sum of multiple numbers)
-        std::cout << calc.add("1\n2\n3\n4\n5") << std::endl;         // Output: 15 (Newlines separating numbers)
-        std::cout << calc.add("//[;]\n1;2;3;4;5") << std::endl;       // Output: 15 (Custom delimiter)
-        
-        // Uncomment the line below to test negative numbers exception handling:
-        // std::cout << calc.add("1,-2,3,-4") << std::endl;           // Should throw exception
-    } catch (const std::exception& e) {
-        std::cerr << "Exception caught: " << e.what() << std::endl;
-    }
-    
-    return 0;
-}
