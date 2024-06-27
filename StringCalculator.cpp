@@ -4,8 +4,8 @@ int StringCalculator::add(string input){
         {
                 return 0;
         }
-        else if(input.compare("1"))
+        else if(input.compare("0"))
         {
-                return 0;
+                return 1;
         }
 }
