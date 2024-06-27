@@ -13,7 +13,7 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
 }
 int StringCalculator::add(const std::string& numbers)
 {
-        if ( numbers.empty() || numbers=="0"))
+        if ( (numbers.empty()) || (numbers=="0"))
         {
                 return 0;
         }
