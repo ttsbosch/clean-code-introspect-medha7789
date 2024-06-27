@@ -13,8 +13,14 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
 }
 int StringCalculator::add(const std::string& numbers)
 {
-  if (numbers.empty()) 
-    return 0;
+        if ( numbers.empty() )
+        {
+                return 0;
+        }
+        else
+        {
+                
+        }       
 }
 bool StringCalculator::getCustomDelimiter(std::string& str,string& delimiter)
 {
