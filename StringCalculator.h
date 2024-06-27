@@ -9,5 +9,5 @@ public:
     int add(const std::string& numbers);
 private:
     void tokenize(const string& str, const string& delimiter, vector<int>& tokens);
-    bool getCustomDelimiter(const string& str, string& delimiter);
+    bool getCustomDelimiter(string& str, string& delimiter);
 };
