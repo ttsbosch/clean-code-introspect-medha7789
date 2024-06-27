@@ -16,7 +16,7 @@ int StringCalculator::add(const std::string& numbers)
   if (numbers.empty()) 
     return 0;
 }
-bool StringCalculator::getCustomDelimiter(std::string& str,const string& delimiter)
+bool StringCalculator::getCustomDelimiter(std::string& str,string& delimiter)
 {
         if (str.substr(0, 2) == "//") 
         {
