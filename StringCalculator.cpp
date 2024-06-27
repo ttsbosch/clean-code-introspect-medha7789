@@ -16,15 +16,15 @@ int StringCalculator::add(const std::string& numbers)
   if (numbers.empty()) 
     return 0;
 }
-bool StringCalculator::getCustomDelimiter(const std::string& str,const string& delimiter)
+bool StringCalculator::getCustomDelimiter(std::string& str,const string& delimiter)
 {
-        if (numbers_copy.substr(0, 2) == "//") 
+        if (str.substr(0, 2) == "//") 
         {
-            size_t end_of_delimiter = numbers_copy.find("\n");
+            size_t end_of_delimiter = str.find("\n");
             if (end_of_delimiter != std::string::npos) 
             {
-                delimiter = numbers_copy.substr(2, end_of_delimiter - 2);
-                numbers_copy = numbers_copy.substr(end_of_delimiter + 1);
+                delimiter = str.substr(2, end_of_delimiter - 2);
+                str = str.substr(end_of_delimiter + 1);
             }
             return true;
         }
