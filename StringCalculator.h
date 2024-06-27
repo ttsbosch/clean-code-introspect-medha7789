@@ -1,5 +1,5 @@
 
 class StringCalculator{
     public:
-    int add();
+    int add(string input);
 };
