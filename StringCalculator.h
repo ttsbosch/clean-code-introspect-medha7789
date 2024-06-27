@@ -2,11 +2,12 @@
 #include <sstream>
 #include <vector>
 #include <stdexcept>
+using namespace std;
 
 class StringCalculator {
 public:
     int add(const std::string& numbers);
 private:
-    void tokenize(const std::string& str, const std::string& delimiter, std::vector<int>& tokens);
-    bool getCustomDelimiter(const std::string& str,const string& delimiter);
+    void tokenize(const string& str, const string& delimiter, vector<int>& tokens);
+    bool getCustomDelimiter(const string& str, string& delimiter);
 };
