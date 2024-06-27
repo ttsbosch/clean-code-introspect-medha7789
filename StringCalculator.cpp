@@ -13,14 +13,27 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
 }
 int StringCalculator::add(const std::string& numbers)
 {
+        string delimiter = ",";.
+        std::vector<int> tokens;
         if ( (numbers.empty()) || (numbers=="0"))
         {
                 return 0;
         }
         else
         {
-                
+                tokenize(numbers,delimiter,tokens);
+                int tokenSum = calculateTokenSum(tokens);
+                return tokenSum;
         }       
+}
+int StringCalculator::calculateTokenSum(std::vector<int>& tokens)
+{
+        int tokenSum = 0;
+        for(int i=0;i<tokens.size();i++)
+        {
+              tokenSum+= tokens[i];
+        }
+        return tokenSum;
 }
 bool StringCalculator::getCustomDelimiter(std::string& str,string& delimiter)
 {
