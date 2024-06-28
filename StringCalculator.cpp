@@ -44,7 +44,7 @@ int StringCalculator::ValidatedTokenValue(int val)
              retVal = 0;
              negatives.push_back(val);
      }
-     else if (val <= 1000) 
+     else if (val > 1000) 
      {
              retVal= 0;
      }
