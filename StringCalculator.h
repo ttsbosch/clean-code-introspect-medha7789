@@ -14,4 +14,5 @@ private:
     int ValidatedTokenValue(int val);
     void ExceptionHandlingForNegativeToken(int token);
     void NegativeTokenHandle(std::vector<int>& tokens, string& strToken);
+    void replaceNewlineWithDelimiter(std::string& str,const std::string& delimiter);
 };
