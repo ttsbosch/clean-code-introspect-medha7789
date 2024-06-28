@@ -8,7 +8,8 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
             int tokenTemp = std::stoi(token);
             if(tokenTemp<0)
             {
-                string errorMessage = std::string("negatives not allowed ");
+                string errorMessage = std::string("negatives not allowed : ");
+                errorMessage+= to_string(tokenTemp);
                 throw std::runtime_error(errorMessage);
             }
             else
@@ -18,7 +19,15 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
             }
         }
         std::string last_token = str.substr(start);
-        tokens.push_back(std::stoi(last_token));
+        int last_tokenTemp = std::stoi(last_token);
+        if(last_tokenTemp<0)
+        {
+            string errorMessage = std::string("negatives not allowed : ");
+            errorMessage+= to_string(last_tokenTemp);
+            throw std::runtime_error(errorMessage);
+        }
+        else
+            tokens.push_back(last_tokenTemp);
 }
 int StringCalculator::add(const std::string& numbers)
 {
