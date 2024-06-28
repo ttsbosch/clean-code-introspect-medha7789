@@ -29,11 +29,23 @@ void StringCalculator::ExceptionHandlingForNegativeToken(int token)
     errorMessage+= to_string(token);
     throw std::runtime_error(errorMessage);
 }
+void StringCalculator::replaceNewlineWithDelimiter(std::string& str,const std::string& delimiter)
+{
+    string newline = "\n";
+    size_t pos = 0;
+    while ( ( pos = str.find ("\n",pos) ) != string::npos )
+    {
+        cout<<"position is "<<pos<<endl;
+        str.erase ( pos, 1 );
+        str.insert( pos,delimiter );
+    }
+}
 int StringCalculator::add(const std::string& numbers)
 {
         string delimiter = ",";
         string numbers_copy = numbers;
         getCustomDelimiter(numbers_copy,delimiter);
+        replaceNewlineWithDelimiter(numbers_copy,delimiter);
         std::vector<int> tokens;
         if ( (numbers_copy.empty()) || (numbers_copy=="0"))
         {
