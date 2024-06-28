@@ -5,22 +5,23 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
         while ((end = str.find(delimiter, start)) != std::string::npos) 
         {
                 std::string token = str.substr(start, end - start);
-                int tokenTemp = std::stoi(token);
-                if(tokenTemp<0)
-                {
-                       ExceptionHandlingForNegativeToken(tokenTemp);
-                }
-                else
-                {
-                        tokens.push_back(tokenTemp);
-                        start = end + delimiter.length();
-                }
+                NegativeTokenHandle(tokens,token);
+                start = end + delimiter.length();
         }
         std::string last_token = str.substr(start);
-        int last_tokenTemp = std::stoi(last_token);
-        if(last_tokenTemp<0)
-                ExceptionHandlingForNegativeToken(last_tokenTemp);
-        tokens.push_back(last_tokenTemp);
+        NegativeTokenHandle(tokens,tokenTemp);
+}
+void StringCalculator::NegativeTokenHandle(std::vector<int>& tokens, string& strToken)
+{
+        int token = std::stoi(strToken);
+        if(token<0)
+        {
+               ExceptionHandlingForNegativeToken(token);
+        }
+        else
+        {
+                tokens.push_back(token);
+        }
 }
 void StringCalculator::ExceptionHandlingForNegativeToken(int token)
 {
