@@ -9,7 +9,7 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
                 start = end + delimiter.length();
         }
         std::string last_token = str.substr(start);
-        NegativeTokenHandle(tokens,tokenTemp);
+        NegativeTokenHandle(tokens,last_token);
 }
 void StringCalculator::NegativeTokenHandle(std::vector<int>& tokens, string& strToken)
 {
