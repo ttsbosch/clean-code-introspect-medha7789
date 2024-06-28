@@ -32,6 +32,7 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
 int StringCalculator::add(const std::string& numbers)
 {
         string delimiter = ",";
+        getCustomDelimiter(numbers,delimiter);
         std::vector<int> tokens;
         if ( (numbers.empty()) || (numbers=="0"))
         {
@@ -68,20 +69,16 @@ int StringCalculator::ValidatedTokenValue(int val)
      }
      return retVal;
 }
-bool StringCalculator::getCustomDelimiter(std::string& str,string& delimiter)
+void StringCalculator::getCustomDelimiter(const std::string& str,string& delimiter)
 {
-        if (str.substr(0, 2) == "//") 
+    string tempstr = str;
+    if (tempstr.substr(0, 2) == "//") 
+    {
+        size_t end_of_delimiter = tempstr.find("\n");
+        if (end_of_delimiter != std::string::npos) 
         {
-            size_t end_of_delimiter = str.find("\n");
-            if (end_of_delimiter != std::string::npos) 
-            {
-                delimiter = str.substr(2, end_of_delimiter - 2);
-                str = str.substr(end_of_delimiter + 1);
-            }
-            return true;
+            delimiter = tempstr.substr(2, end_of_delimiter - 2);
+            tempstr = tempstr.substr(end_of_delimiter + 1);
         }
-        else
-        {
-                return false;
-        }
+    }
 }
