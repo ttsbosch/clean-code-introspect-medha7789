@@ -32,15 +32,16 @@ void StringCalculator::ExceptionHandlingForNegativeToken(int token)
 int StringCalculator::add(const std::string& numbers)
 {
         string delimiter = ",";
-        getCustomDelimiter(numbers,delimiter);
+        string numbers_copy = numbers;
+        getCustomDelimiter(numbers_copy,delimiter);
         std::vector<int> tokens;
-        if ( (numbers.empty()) || (numbers=="0"))
+        if ( (numbers_copy.empty()) || (numbers_copy=="0"))
         {
                 return 0;
         }
         else
         {
-                tokenize(numbers,delimiter,tokens);
+                tokenize(numbers_copy,delimiter,tokens);
                 int tokenSum = calculateTokenSum(tokens);
                 return tokenSum;
         }       
@@ -69,16 +70,15 @@ int StringCalculator::ValidatedTokenValue(int val)
      }
      return retVal;
 }
-void StringCalculator::getCustomDelimiter(const std::string& str,string& delimiter)
+void StringCalculator::getCustomDelimiter(std::string& str,string& delimiter)
 {
-    string tempstr = str;
-    if (tempstr.substr(0, 2) == "//") 
+    if (str.substr(0, 2) == "//") 
     {
-        size_t end_of_delimiter = tempstr.find("\n");
+        size_t end_of_delimiter = str.find("\n");
         if (end_of_delimiter != std::string::npos) 
         {
-            delimiter = tempstr.substr(2, end_of_delimiter - 2);
-            tempstr = tempstr.substr(end_of_delimiter + 1);
+            delimiter = str.substr(2, end_of_delimiter - 2);
+            str = str.substr(end_of_delimiter + 1);
         }
     }
 }
