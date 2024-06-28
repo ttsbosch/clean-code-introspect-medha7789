@@ -5,8 +5,17 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
         while ((end = str.find(delimiter, start)) != std::string::npos) 
         {
             std::string token = str.substr(start, end - start);
-            tokens.push_back(std::stoi(token));
-            start = end + delimiter.length();
+            int tokenTemp = std::stoi(token);
+            if(tokenTemp<0)
+            {
+                string errorMessage = std::string("negatives not allowed ");
+                throw std::runtime_error(errorMessage);
+            }
+            else
+            {    
+                tokens.push_back(tokenTemp);
+                start = end + delimiter.length();
+            }
         }
         std::string last_token = str.substr(start);
         tokens.push_back(std::stoi(last_token));
