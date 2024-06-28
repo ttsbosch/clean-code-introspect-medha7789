@@ -6,7 +6,7 @@ void StringCalculator::tokenize(const std::string& str, const std::string& delim
         {
                 std::string token = str.substr(start, end - start);
                 int tokenTemp = std::stoi(token);
-                if(token<0)
+                if(tokenTemp<0)
                 {
                        ExceptionHandlingForNegativeToken(tokenTemp);
                 }
