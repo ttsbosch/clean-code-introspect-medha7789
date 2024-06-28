@@ -12,4 +12,5 @@ private:
     void getCustomDelimiter(const string& str, string& delimiter);
     int calculateTokenSum(std::vector<int>& tokens);
     int ValidatedTokenValue(int val);
+    void ExceptionHandlingForNegativeToken(int token);
 };
