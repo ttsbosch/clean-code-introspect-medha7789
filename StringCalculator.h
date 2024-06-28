@@ -13,4 +13,5 @@ private:
     int calculateTokenSum(std::vector<int>& tokens);
     int ValidatedTokenValue(int val);
     void ExceptionHandlingForNegativeToken(int token);
+    void NegativeTokenHandle(std::vector<int>& tokens, string& strToken);
 };
